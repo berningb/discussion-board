@@ -1,0 +1,18 @@
+mat-card {
+  width: 50%;
+  border: 1px solid grey
+}
+
+mat-card-actions {
+  float: right
+}
+
+.thread-author {
+  float: right;
+  color: #673AB7
+}
+
+.mat-list-item p { 
+  position: relative;
+  top: 30px;
+}

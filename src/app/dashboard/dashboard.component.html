@@ -1,0 +1,24 @@
+<mat-grid-list cols="1" rowHeight="100px">
+
+  <!-- welcome message -->
+    <mat-grid-tile [rowspan]="1" [colspan]='1'>
+      <mat-card-title>Welcome to the discussion board.</mat-card-title>
+    </mat-grid-tile>
+
+    <!-- dashboard discussion list -->
+    <mat-grid-tile class='discussion-list'
+        [colspan]='1'
+        *ngFor="let discussion of discussions"
+        routerLink="/detail/{{discussion.id}}">
+        <p>{{discussion.title | titlecase}} <span> - {{discussion.author}}</span></p>
+    </mat-grid-tile>
+
+    <!-- adding a new discussion -->
+    <mat-grid-tile>
+      <label>Discussion name:
+          <input #discussionName />
+      </label>
+      <button (click)='createDiscussion(discussionName.value); discussionName.value=""'>Save</button>
+    </mat-grid-tile>
+
+</mat-grid-list>

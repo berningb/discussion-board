@@ -1,0 +1,20 @@
+mat-card {
+  margin: 10px;
+  width: 100%;
+}
+mat-card-subtitle {
+  float: right;
+}
+
+.welcome {
+  margin: 10px;
+  width: 100%;
+}
+.discussion-list {
+  border: 1px solid grey;
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}

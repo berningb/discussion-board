@@ -1,0 +1,37 @@
+<mat-grid-list cols='4' rowHeight="65px" *ngIf="discussion">
+
+<!-- go back to previous page button -->
+  <mat-grid-tile [colspan]='1'>
+    <button mat-raised-button color="primary" (click)='goBack()'>GoBack</button>
+  </mat-grid-tile>
+
+  <!-- displays main discussion to be discussed -->
+  <mat-grid-tile [rowspan]='3' [colspan]='4'>
+    <mat-card class='thread-header'>
+      <h1 class='thread-title'>{{discussion.title | titlecase}}</h1>
+      <h2 class='thread-author' color="primary">- {{discussion.author}}</h2>
+    </mat-card>
+  </mat-grid-tile>
+
+<!-- discussion comment block -->
+  <mat-grid-tile [rowspan]='3' [colspan]='4' *ngFor="let comment of discussion.comments">
+    <mat-card>
+      <!-- used a list for the divider -->
+        <mat-list>
+          <mat-list-item>
+            <mat-card-title>From {{comment.author | titlecase}}:</mat-card-title>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+              <p>
+                {{comment.content}}
+              </p>
+          </mat-list-item>
+        </mat-list>
+        <mat-card-actions>
+          <button mat-raised-button (click)='like()' color="primary" matBadge="{{comment.likes}}" matBadgePosition="before" matBadgeColor="accent">Like</button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
