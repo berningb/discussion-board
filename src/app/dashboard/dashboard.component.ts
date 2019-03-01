@@ -25,8 +25,8 @@ export class DashboardComponent implements OnInit {
     //TODO | hard coded my discussion for testing
     let dis = new Discussion();
     dis.author = 'greg'
-    dis.id = 1;
-    dis.title = 'id ont know what im doing'
+    dis.id = 3;
+    dis.title = title
     dis.comments = []
     console.log(dis)
 
@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(discussion => {
         this.discussions.push(discussion);
       });
+    console.log(this.discussions)
   }
 
   // deleteDiscussion(discussion: Discussion): void {
