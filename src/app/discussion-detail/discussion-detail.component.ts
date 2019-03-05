@@ -1,5 +1,4 @@
 import { Comment } from './../commentModel';
-import { CommentService } from './../services/comment.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Discussion } from '../discussionModel';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +21,6 @@ export class DiscussionDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private ds: DiscussionService,
     private location: Location,
-    private cs: CommentService
     ) {}
 
   ngOnInit(): void {
