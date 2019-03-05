@@ -1,4 +1,4 @@
-<mat-grid-list cols='4' rowHeight="65px" *ngIf="discussion">
+<mat-grid-list cols='12' rowHeight="80px" *ngIf="discussion" class='head'>
 
 <!-- go back to previous page button -->
   <mat-grid-tile [colspan]='1'>
@@ -6,32 +6,33 @@
   </mat-grid-tile>
 
   <!-- displays main discussion to be discussed -->
-  <mat-grid-tile [rowspan]='3' [colspan]='4'>
-    <mat-card class='thread-header'>
-      <h1 class='thread-title'>{{discussion.title | titlecase}}</h1>
-      <h2 class='thread-author' color="primary">- {{discussion.author}}</h2>
-    </mat-card>
+  <mat-grid-tile [rowspan]='3' [colspan]='11'>
+    <mat-list>
+      <mat-list-item class='author'>
+        <h2 class='thread-author' color="primary">- {{discussion.author}}</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <h1 class='thread-title'>{{discussion.title | titlecase}}</h1>
+      </mat-list-item>
+    </mat-list>
   </mat-grid-tile>
-
-<!-- discussion comment block -->
-  <mat-grid-tile [rowspan]='3' [colspan]='4' *ngFor="let comment of discussion.comments">
-    <mat-card>
-      <!-- used a list for the divider -->
-        <mat-list>
-          <mat-list-item>
-            <mat-card-title>From {{comment.author | titlecase}}:</mat-card-title>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>
-              <p>
-                {{comment.content}}
-              </p>
-          </mat-list-item>
-        </mat-list>
-        <mat-card-actions>
-          <button mat-raised-button (click)='like()' color="primary" matBadge="{{comment.likes}}" matBadgePosition="before" matBadgeColor="accent">Like</button>
-        </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-
 </mat-grid-list>
+  
+<!-- discussion comment block -->
+
+
+<mat-grid-list [cols]='1' rowHeight="150px" *ngIf="discussion">
+    <mat-grid-tile [colspan]='1' class='comment-list'
+    *ngFor="let comment of discussion.comments">
+    <mat-card >
+      <mat-card-content>
+        <p class='commentor'>{{comment.author | titlecase}}</p>
+        <p>{{comment.content}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)='like()'>{{comment.likes}} Likes</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

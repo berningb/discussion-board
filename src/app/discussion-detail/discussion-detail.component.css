@@ -1,18 +1,31 @@
-mat-card {
-  width: 50%;
-  border: 1px solid grey
-}
-
-mat-card-actions {
-  float: right
-}
-
 .thread-author {
   float: right;
   color: #673AB7
 }
 
-.mat-list-item p { 
-  position: relative;
-  top: 30px;
+.head {
+  background-color: #FFFFFF;
+}
+.author {
+  text-align: right;
+}
+.comment-list {
+  margin-top: 30px;
+}
+.commentor {
+  font-size: 22px;
+  padding-right: 20px;
+}
+mat-card button{
+  border: 1px solid #DBD6DB;
+}
+mat-card {
+  width: 40%;
+}
+mat-card-content {
+  margin: 0px;
+}
+button {
+  float: right;
+
 }

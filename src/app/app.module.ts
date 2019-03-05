@@ -1,6 +1,5 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -16,14 +15,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { LoginCreationComponent } from './login-creation/login-creation.component';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
+    MatInputModule,
+    MatSelectModule,
     MatCardModule, 
     MatBadgeModule,
+    MatAutocompleteModule,
     MatListModule,
     CKEditorModule,
     MatDividerModule,
@@ -41,6 +45,7 @@ import {MatDividerModule} from '@angular/material/divider';
     AppComponent,
     DashboardComponent,
     DiscussionDetailComponent,
+    LoginCreationComponent,
   ],
   bootstrap: [ AppComponent ]
 })

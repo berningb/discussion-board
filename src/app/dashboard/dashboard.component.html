@@ -1,24 +1,33 @@
-<mat-grid-list cols="1" rowHeight="100px">
+<mat-grid-list cols="1" rowHeight="100" class="welcome">
 
   <!-- welcome message -->
-    <mat-grid-tile [rowspan]="1" [colspan]='1'>
-      <mat-card-title>Welcome to the discussion board.</mat-card-title>
+    <mat-grid-tile [rowspan]="1">
+      <h1>Welcome to the discussion board.</h1>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]='1'>
+      <button class='login' mat-button routerLink="/login">Log in</button>
+      <button class='create' mat-button routerLink="/create">Create Account</button>
     </mat-grid-tile>
 
-    <!-- dashboard discussion list -->
-    <mat-grid-tile class='discussion-list'
-        [colspan]='1'
-        *ngFor="let discussion of discussions"
-        routerLink="/detail/{{discussion.id}}">
-        <p>{{discussion.title | titlecase}} <span> - {{discussion.author}}</span></p>
-    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="1" rowHeight="240">
 
-    <!-- adding a new discussion -->
-    <mat-grid-tile>
-      <label>Discussion name:
-          <input #discussionName />
-      </label>
-      <button (click)='createDiscussion(discussionName.value); discussionName.value=""'>Save</button>
-    </mat-grid-tile>
+  <!-- dashboard discussion list -->
+  <mat-grid-tile [colspan]='1' class='discussion-item'
+    *ngFor="let discussion of discussions">
+    <mat-card >
+      <mat-card-content>
+        <h5>{{discussion.title | titlecase}} </h5>
+        <mat-card-subtitle> - {{discussion.author}}</mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button routerLink="/detail/{{discussion.id}}">{{discussion.comments.length}} Comments</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile routerLink="/detail/createDiscussion">
+    <p>Create new Discussion +</p>
+  </mat-grid-tile>
 
 </mat-grid-list>

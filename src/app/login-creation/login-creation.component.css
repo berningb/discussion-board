@@ -1,0 +1,8 @@
+mat-card {
+    margin: auto;
+    width: 40%;
+    margin-top: 40px;
+}
+mat-card-content {
+    text-align: center;
+}
