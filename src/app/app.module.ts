@@ -1,3 +1,5 @@
+import { LoginComponent } from './login/login.component';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { HttpClientModule }    from '@angular/common/http';
@@ -18,7 +20,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { LoginCreationComponent } from './login-creation/login-creation.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -45,7 +46,8 @@ import { LoginCreationComponent } from './login-creation/login-creation.componen
     AppComponent,
     DashboardComponent,
     DiscussionDetailComponent,
-    LoginCreationComponent,
+    LoginComponent,
+    CreateProfileComponent,
   ],
   bootstrap: [ AppComponent ]
 })

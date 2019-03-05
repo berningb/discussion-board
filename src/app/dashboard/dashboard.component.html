@@ -1,6 +1,4 @@
 <mat-grid-list cols="1" rowHeight="100" class="welcome">
-
-  <!-- welcome message -->
     <mat-grid-tile [rowspan]="1">
       <h1>Welcome to the discussion board.</h1>
     </mat-grid-tile>
@@ -8,11 +6,9 @@
       <button class='login' mat-button routerLink="/login">Log in</button>
       <button class='create' mat-button routerLink="/create">Create Account</button>
     </mat-grid-tile>
-
 </mat-grid-list>
-<mat-grid-list cols="1" rowHeight="240">
 
-  <!-- dashboard discussion list -->
+<mat-grid-list cols="1" rowHeight="240">
   <mat-grid-tile [colspan]='1' class='discussion-item'
     *ngFor="let discussion of discussions">
     <mat-card >
@@ -25,9 +21,4 @@
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
-
-  <mat-grid-tile routerLink="/detail/createDiscussion">
-    <p>Create new Discussion +</p>
-  </mat-grid-tile>
-
 </mat-grid-list>

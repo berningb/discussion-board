@@ -1,5 +1,4 @@
 <mat-grid-list cols='12' rowHeight="80px" *ngIf="discussion" class='head'>
-
 <!-- go back to previous page button -->
   <mat-grid-tile [colspan]='1'>
     <button mat-raised-button color="primary" (click)='goBack()'>GoBack</button>
@@ -31,6 +30,19 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)='like()'>{{comment.likes}} Likes</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list [cols]=1 rowHeight='200px' class='add-comment'>
+  <mat-grid-tile [colspan]='1'>
+    <mat-card class=''>
+      <mat-card-content>
+        <ckeditor [editor]="Editor"></ckeditor>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)='createComment()'>Add comment</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

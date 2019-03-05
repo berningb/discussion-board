@@ -1,5 +1,6 @@
+import { Comment } from './../commentModel';
+import { Discussion } from './../discussionModel';
 import { Injectable } from '@angular/core';
-import { Discussion } from '../discussionModel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
@@ -13,7 +14,6 @@ const httpOptions = {
 
 export class DiscussionService {
   private discussionsUrl = 'api/myDiscussions';
-
   constructor(
     private http: HttpClient) { }
 
@@ -21,6 +21,12 @@ export class DiscussionService {
     return this.http.get<Discussion[]>(this.discussionsUrl)
   }
 
+  addCommentToDiscussion (discussion: Discussion, comment: Comment): Observable<Discussion> {
+    const url = `${this.discussionsUrl}/${discussion.id}`;
+    discussion.comments.push(comment)
+    console.log(discussion, 'what')
+    return this.http.put<Discussion>(url, discussion)
+  }
  
   /** GET discussion by id */
   getDiscussion(id: number): Observable<Discussion> {

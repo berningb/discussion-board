@@ -2,7 +2,6 @@ import { Discussion } from './../discussionModel';
 import { Component, OnInit } from '@angular/core';
 import { DiscussionService } from '../services/discussion.service'
 import { FormControl } from '@angular/forms';
-import {map, startWith} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -29,12 +28,7 @@ export class DashboardComponent implements OnInit {
 
   createDiscussion(title: string): void {
     //TODO | hard coded my discussion for testing
-    let dis = new Discussion();
-    dis.author = 'greg'
-    dis.id = 3;
-    dis.title = title
-    dis.comments = []
-    console.log(dis)
+    let dis = new Discussion(3, 'greg', title, null);
 
     if (!title) { return; }
     this.ds.addDisucssion(dis)
@@ -43,12 +37,5 @@ export class DashboardComponent implements OnInit {
       });
     console.log(this.discussions)
   }
-
-
-
-  // deleteDiscussion(discussion: Discussion): void {
-  //   this.discussions = this.discussions.filter(d => d !== discussion)
-  //   this.ds.deleteDiscussion(discussion).subscribe()
-  // }
 
 }
